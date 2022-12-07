@@ -6,11 +6,12 @@ html(lang="ja")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     title= title
     link(rel="stylesheet", href="/assets/css/index.css")
-    script(src="/assets/js/jquery-3.5.1.js")
-    script(src="/assets/js/sample/main.js")
+    script(src="/assets/js/jquery-3.6.1.min.js")
+    script(src="/assets/js/main.js")
     script.
-      console.log("someLib",someLib)
-      someLib.main()
+      (function(){
+        console.log("pug to js")
+      })()
   body
     h1= title
     p projectRoot = #{projectRoot}
