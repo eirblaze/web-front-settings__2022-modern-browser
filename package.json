@@ -5,5 +5,8 @@
   "repository": "git@github.com:eirblaze/web-front-settings__2022-modern-browser.git",
   "author": "eirblaze <eirblaze@live.jp>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "webpack": "^5.75.0"
+  }
 }
