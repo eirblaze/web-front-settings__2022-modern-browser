@@ -1,3 +1,6 @@
+# express.ts
+
+```TypeScript
 import { Configuration as WpCfgNeutral } from "webpack";
 //@ts-ignore
 import { Configuration as WpDevServerCfg } from "webpack-dev-server";
@@ -41,3 +44,4 @@ export default function (projectRoot: string): WpCfg {
     },
   }
 }
+```
