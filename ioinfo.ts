@@ -6,7 +6,7 @@ import { resolve as pathResolve } from "path"
 export const extensions = [".ts", ".tsx", ".js", ".json", ".pug"]
 
 export const publicPath = {
-  dev:  "./public",
+  dev:  "./dev-public",
   prod: "./production-public",
 }
 
