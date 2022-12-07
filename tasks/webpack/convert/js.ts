@@ -1,5 +1,4 @@
 import { Configuration as WpCfg } from "webpack"
-import babelCfg from "#root/babel.config"
 import { isDev } from "#tsk/getEnv"
 
 const cfg: WpCfg = {
@@ -11,8 +10,12 @@ const cfg: WpCfg = {
         // 利用するローダー
         use: [
           {
-            loader: "babel-loader",
-            options: babelCfg(),
+            loader: "ts-loader",
+            options: {
+              compilerOptions: {
+                sourceMap: true,
+              },
+            },
           },
           {
             loader: 'webpack-preprocessor-loader',

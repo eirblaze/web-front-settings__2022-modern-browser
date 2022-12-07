@@ -1,12 +1,13 @@
-import dirTree from "directory-tree"
+// import dirTree from "directory-tree"
 import { gulpPug,siteMap,publicPath,siteData } from "#root/ioinfo"
-import { merge } from "webpack-merge"
+// import { merge } from "webpack-merge"
 import fs from "fs"
 import path from "path"
 import gulp from "gulp"
+//@ts-ignore
 import header from "gulp-header"
 import { isDev } from "#tsk/getEnv"
-import { sitemap } from "#root/gulpfile"
+// import { sitemap } from "#root/gulpfile"
 
 export default async function generateSitemap() {
   const getFileList = async function (rootDir:string, externalDir = {}) {

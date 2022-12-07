@@ -1,9 +1,13 @@
 import path from "path"
 import { src, dest } from "gulp"
+//@ts-ignore
 import pug from "gulp-pug"
+//@ts-ignore
 import prettier from "gulp-prettier"
+//@ts-ignore
 import minInline from 'gulp-minify-inline'
 import newer from "gulp-newer"
+//@ts-ignore
 import data from "gulp-data"
 import fs from "fs"
 import { merge } from "webpack-merge"
@@ -62,7 +66,7 @@ export default function buildHtml(): NodeJS.ReadWriteStream {
       })
     )
     .pipe(pug({
-      basedir: gulpPug.srcBaseDir,
+      locals: gulpPug.srcBaseDir,
     }))
 
   if (isDev) {

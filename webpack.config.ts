@@ -6,8 +6,13 @@ nodeModuleAlias(__dirname)
 
 // plugin
 import TerserPlugin from "terser-webpack-plugin"
+
+//@ts-ignore
 import BundleAnalyzerPlugin from "webpack-bundle-analyzer"
+
+//@ts-ignore
 import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plugin"
+
 // import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin"
 
 // tasks

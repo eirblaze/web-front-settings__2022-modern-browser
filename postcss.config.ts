@@ -17,7 +17,9 @@ export function plugins(isDev:boolean = _isDev){
   )
 
   if (!isDev) retPlugins.push(
-    cssnano({autoprefixer: false})
+    cssnano({
+      preset: 'default',
+    })
   )
 
   return retPlugins

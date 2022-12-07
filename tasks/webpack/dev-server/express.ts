@@ -1,4 +1,5 @@
 import { Configuration as WpCfgNeutral } from "webpack";
+//@ts-ignore
 import { Configuration as WpDevServerCfg } from "webpack-dev-server";
 import { webpackDevServerPugView } from "#root/ioinfo"
 // import superstatic from "superstatic"
