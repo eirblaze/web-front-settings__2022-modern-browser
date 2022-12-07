@@ -13,7 +13,7 @@ const cfg: WpCfg = {
             loader: "ts-loader",
             options: {
               compilerOptions: {
-                sourceMap: true,
+                sourceMap: isDev,
               },
             },
           },
