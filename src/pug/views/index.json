@@ -1,0 +1,7 @@
+{
+  "title": "hello world",
+  "description": "hello my template engine",
+  "bodyClass": "top",
+  "mathjax": true,
+  "top": true
+}
