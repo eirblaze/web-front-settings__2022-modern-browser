@@ -1,6 +1,6 @@
 # web-front-settings__2022-modern-browser
 
-webpack 5 + dev server + sass,ts sourcemap
+webpack 5 + dev server + sass,ts sourcemap + pug
 without IE support
 
 ## todo
