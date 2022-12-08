@@ -21,8 +21,10 @@
     "startwp": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" webpack serve --env=dev",
     "start": "run-p startwp gs-w",
     "test": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" jest",
-    "tscfg": "tsc --showConfig",
-    "lint": "eslint ./**/*.ts ./**/*.js"
+    "test-w": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" jest --watch",
+    "coverage": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" jest --coverage",
+    "lint": "eslint ./**/*.ts ./**/*.js",
+    "tscfg": "tsc --showConfig"
   },
   "dependencies": {
     "@babel/core": "^7.20.5",
