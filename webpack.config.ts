@@ -84,7 +84,7 @@ export default function (env: any, argv: any): WpCfg {
   // convert
   wpOptions.push(jsCfg)
 
-  // 重複チェック
+  // 重複パッケージチェック https://www.npmjs.com/package/duplicate-package-checker-webpack-plugin
   wpOptions.push({
     plugins: [new DuplicatePackageCheckerPlugin() as WebpackPluginInstance],
   })
