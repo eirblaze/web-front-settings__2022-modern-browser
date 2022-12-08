@@ -1,4 +1,7 @@
 dev-public/
+windows-alias/
+sandbox/
+*.map
 
 # Logs
 logs
