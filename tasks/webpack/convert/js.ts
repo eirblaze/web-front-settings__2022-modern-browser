@@ -22,14 +22,6 @@ const cfg: WpCfg = {
               },
             },
           },
-          // {
-          //   loader: "ts-loader",
-          //   options: {
-          //     compilerOptions: {
-          //       sourceMap: isDev,
-          //     },
-          //   },
-          // },
           {
             loader: 'webpack-preprocessor-loader',
             options: {
@@ -41,23 +33,6 @@ const cfg: WpCfg = {
         ],
         // ローダーの処理対象から外すディレクトリ
         exclude: /node_modules/,
-      },
-      {
-        test: /\.pug$/,
-        use: [
-          {
-            // https://runebook.dev/ja/docs/webpack/loaders/html-loader
-            loader: 'html-loader',
-          },
-          {
-            // https://github.com/willyelm/pug-html-loader
-            loader: 'pug-html-loader',
-            options: {
-              // options to pass to the compiler same as: https://pugjs.org/api/reference.html
-              data: {} // set of data to pass to the pug render.
-            },
-          }
-        ],
       },
     ],
   },
