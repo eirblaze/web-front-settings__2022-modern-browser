@@ -25,6 +25,7 @@ export const wpIo: WpCfg = {
 }
 export const libName: string | "" = ""
 
+// バンドルに含めないもの
 export const externals: WpCfg = {
   externals: [
     /^(jquery|\$)$/i,
