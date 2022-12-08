@@ -18,6 +18,7 @@ import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plu
 // tasks
 import devServer from "#twp/dev-server"
 import jsCfg from "#twp/convert/js"
+import vueCfg from "#twp/convert/vue"
 
 // get env
 import * as ioinfo from "#root/ioinfo"
@@ -83,6 +84,7 @@ export default function (env: any, argv: any): WpCfg {
 
   // convert
   wpOptions.push(jsCfg)
+  wpOptions.push(vueCfg)
 
   // 重複パッケージチェック https://www.npmjs.com/package/duplicate-package-checker-webpack-plugin
   wpOptions.push({
