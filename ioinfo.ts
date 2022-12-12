@@ -3,7 +3,7 @@ import { resolve as pathResolve } from "path"
 
 // 共通
 
-export const extensions = [".ts", ".tsx", ".js", ".json", ".pug"]
+export const extensions = [".ts", ".tsx", ".js", ".jsx", ".json", ".pug"]
 
 export const publicPath = {
   dev:  "./dev-public",
