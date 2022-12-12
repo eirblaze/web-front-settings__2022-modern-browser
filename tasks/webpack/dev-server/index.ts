@@ -1,5 +1,5 @@
 import { Configuration as WpCfg } from "webpack";
-// import { Configuration as WpDevServerCfg } from "webpack-dev-server";
+import { Configuration as WpDevServerCfg } from "webpack-dev-server";
 import merge from "webpack-merge"
 import path from "path"
 import { publicPath } from "#root/ioinfo"
@@ -26,6 +26,7 @@ export default function (projectRoot: string): WpCfg {
         static: [
           {
             directory: path.join(projectRoot, publicPath.dev),
+            watch: true, // コンテンツベースに置かれたファイル(htmlやcssなど)の変更を監視する
           },
         ],
         port: 8090,
@@ -40,7 +41,7 @@ export default function (projectRoot: string): WpCfg {
 
         // HMR (ホットリロード) 全般設定
         hot: true,
-        // watchContentBase: true, // コンテンツベースに置かれたファイル(htmlやcssなど)の変更を監視する
+        // watchContentBase: true, // v3のみ、v4から static.watch に移設。コンテンツベースに置かれたファイル(htmlやcssなど)の変更を監視する
         // inline            : true, // オートリフレッシュ(自動再読込)をiframeモードで実行する
       },
     },
