@@ -1,5 +1,10 @@
 import React from "react"
 
 const name = 'my friend'
-export const element =
-<p>Hello, {name}</p>
+
+function MyApp() {
+  return <p>Hello, {name}</p>
+}
+
+export const element = <MyApp />
+
