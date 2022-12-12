@@ -4,7 +4,7 @@ html(lang="ja")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    title= title
+    title= pageMetaData.title
     link(rel="stylesheet", href="/assets/css/index.css")
     script(src="/assets/js/jquery-3.6.1.min.js")
     script(src="/assets/js/main.js")
@@ -13,7 +13,8 @@ html(lang="ja")
         console.log("pug to js")
       })()
   body
-    h1= title
+    h1= pageMetaData.title
+    p #{pageMetaData.title} - isDev: #{isDev}
     p projectRoot = #{projectRoot}
     p.no-js No Js
     ul.sample-list
