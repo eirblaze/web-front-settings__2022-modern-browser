@@ -29,8 +29,8 @@ export const libName: string | "" = ""
 export const externals: WpCfg = {
   externals: [
     /^(jquery|\$)$/i,
-    /^react$/i,
     {
+      react: "React",
       "react-dom/client": "ReactDOM",
     },
     /^mathjax/i,
