@@ -1,1 +1,1 @@
-!function(){"use strict";$((()=>{$(".no-js").hide()}))}();
+!function(){"use strict";$((function(){$(".no-js").hide()})),$((function(){var t;t=document.querySelector("#react-root"),ReactDOM.createRoot(t).render(e(LikeButton))}))}();

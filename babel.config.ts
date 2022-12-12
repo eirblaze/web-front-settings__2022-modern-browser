@@ -15,7 +15,10 @@ export default function getBabelCfg(isDev: boolean = _isDev) {
 
   // TS
   babelCfg.push({
-    presets: ["@babel/typescript"],
+    presets: [
+      "@babel/typescript",
+      ["react-app", { "flow": false, "typescript": true }],
+    ],
   })
 
   // console.log("babel mergedOptions",merge(babelCfg))
