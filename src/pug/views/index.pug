@@ -22,14 +22,14 @@ html(lang="ja")
       (function(){
         console.log("pug to js")
       })()
-  body
+  body.index-page
     h1= pageMetaData.title
     p #{pageMetaData.title} - isDev: #{isDev}
     p projectRoot = #{projectRoot}
     p.no-js No Js
     ul.sample-list
       li.sample-list__member
-        a(href="#") ABCD
+        a(href="#") ABCDEF
     #react-root
     //-
       Note: this page is a great way to try React but it's not suitable for production.
