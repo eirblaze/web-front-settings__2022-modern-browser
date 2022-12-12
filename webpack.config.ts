@@ -6,11 +6,7 @@ nodeModuleAlias(__dirname)
 
 // plugin
 import TerserPlugin from "terser-webpack-plugin"
-
-//@ts-ignore
-import BundleAnalyzerPlugin from "webpack-bundle-analyzer"
-
-//@ts-ignore
+import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer"
 import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plugin"
 
 // import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin"
@@ -87,7 +83,8 @@ export default function (env: any, argv: any): WpCfg {
 
   // 重複パッケージチェック https://www.npmjs.com/package/duplicate-package-checker-webpack-plugin
   wpOptions.push({
-    plugins: [new DuplicatePackageCheckerPlugin() as WebpackPluginInstance],
+    //@ts-ignore
+    plugins: [new DuplicatePackageCheckerPlugin()],
   })
 
   // minify
@@ -125,7 +122,7 @@ export default function (env: any, argv: any): WpCfg {
   // analyze
   if (analyze) {
     wpOptions.push({
-      plugins: [new BundleAnalyzerPlugin() as WebpackPluginInstance],
+      plugins: [new BundleAnalyzerPlugin()],
     })
   }
 
