@@ -1,4 +1,5 @@
 import React from "react"
+import {Toggle} from "./toggle"
 
 export interface UserListProp {
   userList: string[]
@@ -19,7 +20,7 @@ const Users: React.FC<UserListProp> = (props) => <ul>
       key={index.toString()}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-    >{iterator}</li> )
+    >{iterator}<Toggle swNo={index}/></li> )
   }
 </ul>
 
