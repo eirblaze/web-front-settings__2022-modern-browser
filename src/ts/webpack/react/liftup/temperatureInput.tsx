@@ -6,21 +6,21 @@ const scaleNames = {
 };
 
 export interface TemperatureInputProp {
-  patrsId: number
+  patrsNum?: number
   label?: string
-  temperature: number
+  temperature: string
   scale: string
-  onTemperatureChange: React.ChangeEventHandler
+  onTemperatureChange: React.ChangeEventHandler<any>
 }
 
-class TemperatureInput extends React.Component<TemperatureInputProp> {
+export class TemperatureInput extends React.Component<TemperatureInputProp> {
   constructor(props: TemperatureInputProp) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e: React.ChangeEvent) {
-    this.props.onTemperatureChange(e)
+  handleChange(e: any) {
+    this.props.onTemperatureChange(e.target.value)
   }
 
   render() {

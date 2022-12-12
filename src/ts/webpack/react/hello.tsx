@@ -1,5 +1,6 @@
 import React from "react"
 import {Toggle} from "./toggle"
+import {TemperatureCalc} from "./liftup/temperatureCalc"
 
 export interface UserListProp {
   userList: string[]
@@ -35,6 +36,8 @@ function MyApp() {
       "D",
       "E",
     ]}/>
+    <TemperatureCalc />
+
   </div>
 }
 
