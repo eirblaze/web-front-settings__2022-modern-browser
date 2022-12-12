@@ -3,6 +3,7 @@ import babelCfg from "#root/babel.config"
 import { isDev } from "#tsk/getEnv"
 
 const cfg: WpCfg = {
+  target: ["web","es2021"], // https://webpack.js.org/configuration/target/
   module: {
     rules: [
       {
