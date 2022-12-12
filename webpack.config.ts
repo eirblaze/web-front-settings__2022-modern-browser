@@ -27,7 +27,8 @@ export default function (env: any, argv: any): WpCfg {
   // set env
   // console.log("env",env)
   // console.log("argv",argv)
-  const wpIsLocal = argv.env != undefined && argv.env.WEBPACK_SERVE == true
+  // console.log(process.env.NODE_ENV)
+  const wpIsLocal = "env" in argv && "WEBPACK_SERVE" in argv.env && argv.env.WEBPACK_SERVE == true
   // console.log("wpIsLocal", wpIsLocal)
 
   // init
