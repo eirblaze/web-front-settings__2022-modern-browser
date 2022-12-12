@@ -7,7 +7,7 @@ const cfg: WpCfg = {
     rules: [
       {
         // ローダーの処理対象ファイル
-        test: /\.m?[jt]s$/,
+        test: /\.m?[jt]sx?$/,
         // 利用するローダー
         use: [
           {
