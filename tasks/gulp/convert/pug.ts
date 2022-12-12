@@ -62,6 +62,7 @@ export default function buildHtml(): NodeJS.ReadWriteStream {
             ),
             siteData
           ),
+          isDev: isDev,
         }
       })
     )
