@@ -29,8 +29,10 @@ export const libName: string | "" = ""
 export const externals: WpCfg = {
   externals: [
     /^(jquery|\$)$/i,
-    /^React/i,
-    // /^firebase($|\/.+$)/i,
+    /^react$/i,
+    {
+      "react-dom/client": "ReactDOM",
+    },
     /^mathjax/i,
     // /^@pug\/lib\/data\/scheduler/, // @ 書式はサポートしていない
     // {
