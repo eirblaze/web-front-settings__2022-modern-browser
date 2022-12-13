@@ -5,6 +5,7 @@ import { merge } from "webpack-merge"
 export interface UsersProp {
   userId: number
   userName: string
+  fare: number
 }
 export interface UsersState {
   css: React.CSSProperties
@@ -33,7 +34,6 @@ export class User extends React.Component<UsersProp,UsersState> {
     const classNamePrefix = "sw-wrap"
     return (<li
       className={`${classNamePrefix} ${classNamePrefix}__${this.props.userId}`}
-      key={this.props.userId.toString()}
       onMouseEnter={this.handleMouseEnter}
       onMouseLeave={this.handleMouseLeave}
       style={this.state.css}
@@ -44,15 +44,22 @@ export class User extends React.Component<UsersProp,UsersState> {
         onSwChange={this.handleSwToggle}
         onSwLoad={this.handleSwToggle}
       />
+      {this.props.fare}&yen;
     </li>)
   }
 }
 
-export const UserList: React.FC<{userList: string[]}> = (props) => <ul>
+export const UserList: React.FC<{
+  userList: {
+    name: string
+    fare: number
+  }[],
+}> = (props) => <ul>
 {
   props.userList.map( (iterator,index) => <User
     userId={index}
-    userName={iterator}
+    userName={iterator.name}
+    fare={iterator.fare}
     key={index.toString()}
   />)
 }
