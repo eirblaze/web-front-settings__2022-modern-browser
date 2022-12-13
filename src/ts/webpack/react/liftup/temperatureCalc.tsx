@@ -19,11 +19,11 @@ export class TemperatureCalc extends React.Component<TemperatureCalcProp, Temper
     this.state = {temperature: '', scale: 'c'};
   }
 
-  handleCelsiusChange(temperature) {
+  handleCelsiusChange(temperature: string) {
     this.setState({scale: 'c', temperature});
   }
 
-  handleFahrenheitChange(temperature) {
+  handleFahrenheitChange(temperature: string) {
     this.setState({scale: 'f', temperature});
   }
 
