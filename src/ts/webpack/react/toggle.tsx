@@ -32,7 +32,7 @@ export class Toggle extends React.Component<ToggleProp,ToggleState> {
 
   render() {
     return (
-      <button onClick={this.handleClick}>
+      <button onClick={this.handleClick} type="button">
         {this.state.isToggleOn ? 'ON' : 'OFF'}
       </button>
     );

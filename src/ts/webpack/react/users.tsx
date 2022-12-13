@@ -6,8 +6,8 @@ export interface UserProp {
   userId: number
   userName: string
   運賃: number
-  onCurrentFareChange?: (fare: number)=>void
-  onCurrentFareLoad?: (fare: number)=>void
+  onCurrentFareChange?: (userId:number, fare: number)=>void
+  onCurrentFareLoad?: (userId:number, fare: number)=>void
 }
 export interface UserState {
   css: React.CSSProperties
@@ -21,7 +21,7 @@ export class User extends React.Component<UserProp,UserState> {
       css: {},
       currentFare: 0
     }
-    if ( this.props.onCurrentFareLoad !== undefined ) this.props.onCurrentFareLoad(this.state.currentFare)
+    if ( this.props.onCurrentFareLoad !== undefined ) this.props.onCurrentFareLoad(this.props.userId, this.state.currentFare)
   }
 
   handleMouseEnter:React.MouseEventHandler<HTMLLIElement> = e => {
@@ -32,11 +32,12 @@ export class User extends React.Component<UserProp,UserState> {
   }
 
   handleSwToggle = (isOn:boolean) => {
+    const updatedFare = isOn ? this.props.運賃 : 0
     this.setState({
       css: merge(this.state.css,{backgroundColor: isOn ? "hsl(0, 100%, 25%)" : "transparent"}),
-      currentFare: isOn ? this.props.運賃 : 0,
+      currentFare: updatedFare,
     })
-    if ( this.props.onCurrentFareChange !== undefined ) this.props.onCurrentFareChange(this.state.currentFare)
+    if ( this.props.onCurrentFareChange !== undefined ) this.props.onCurrentFareChange(this.props.userId, updatedFare)
   }
 
   render() {
@@ -67,34 +68,40 @@ export interface UserListProp {
   onFareLoad?: (運賃: number)=>void
 }
 export interface UserListState {
-  totalFare: number
+  fares: number[]
 }
 export class UserList extends React.Component<UserListProp,UserListState> {
   constructor(props: UserListProp) {
     super(props)
     this.state = {
-      totalFare: 0
+      fares: new Array(props.userList.length).fill(0) as number[],
     }
   }
 
-  handleChangeTotalFare = (fare: number) => {
+  handleChangeTotalFare = (userId:number, currentFare: number) => {
     this.setState(prevState => {
-      return {totalFare: fare + prevState.totalFare}
+      const updatedState: UserListState = prevState
+      updatedState.fares[userId] = currentFare
+      return updatedState
     })
   }
 
-  render() { return <div>
-    <ul>{
-      this.props.userList.map( (iterator,index) => <User
-        userId={index}
-        userName={iterator.name}
-        運賃={iterator.運賃}
-        key={index.toString()}
-        onCurrentFareLoad={this.handleChangeTotalFare}
-        onCurrentFareChange={this.handleChangeTotalFare}
-      />)
-    }</ul>
-    <p>運賃: {this.state.totalFare}&yen;</p>
-  </div>}
+  render() {
+    let totalFare = 0
+    this.state.fares.forEach(ele=>{totalFare+=ele})
+    return <div>
+      <ul>{
+        this.props.userList.map( (iterator,index) => <User
+          userId={index}
+          userName={iterator.name}
+          運賃={iterator.運賃}
+          key={index.toString()}
+          onCurrentFareLoad={this.handleChangeTotalFare}
+          onCurrentFareChange={this.handleChangeTotalFare}
+        />)
+      }</ul>
+      <p>運賃: {totalFare}&yen;</p>
+    </div>
+  }
 }
 
