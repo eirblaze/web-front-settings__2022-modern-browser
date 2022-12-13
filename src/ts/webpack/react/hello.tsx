@@ -6,13 +6,11 @@ export interface UserListProp {
   userList: string[]
 }
 
-const handleMouseEnter:React.MouseEventHandler = e => {
-  $(e.currentTarget).css({
-    "backgroundColor": "maroon",
-  })
+const handleMouseEnter:React.MouseEventHandler<HTMLLIElement> = e => {
+  e.currentTarget.style.backgroundColor = "maroon"
 }
-const handleMouseLeave:React.MouseEventHandler = e => {
-  $(e.currentTarget).css({"backgroundColor": "transparent"})
+const handleMouseLeave:React.MouseEventHandler<HTMLLIElement> = e => {
+  e.currentTarget.style.backgroundColor = "transparent"
 }
 
 const Users: React.FC<UserListProp> = (props) => <ul>
