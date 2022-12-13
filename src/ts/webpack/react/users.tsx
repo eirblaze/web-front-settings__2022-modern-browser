@@ -24,19 +24,27 @@ export class User extends React.Component<UsersProp,UsersState> {
   handleMouseLeave:React.MouseEventHandler<HTMLLIElement> = e => {
     this.setState({css: merge(this.state.css,{borderColor: "transparent"})})
   }
+
+  handleSwToggle = (isOn:boolean) => {
+    this.setState({css: merge(this.state.css,{backgroundColor: isOn ? "maroon" : "transparent"})})
+  }
   
   render() {
     const classNamePrefix = "sw-wrap"
     return (<li
-        className={`${classNamePrefix} ${classNamePrefix}__${this.props.userId}`}
-        key={this.props.userId.toString()}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        style={this.state.css}
-      >
-        {this.props.userName}<Toggle swNo={this.props.userId} onSwChange={isOn=>{
-        this.setState({css: merge(this.state.css,{backgroundColor: isOn ? "maroon" : "transparent"})})
-      }} /></li>)
+      className={`${classNamePrefix} ${classNamePrefix}__${this.props.userId}`}
+      key={this.props.userId.toString()}
+      onMouseEnter={this.handleMouseEnter}
+      onMouseLeave={this.handleMouseLeave}
+      style={this.state.css}
+    >
+      {this.props.userName}
+      <Toggle
+        swNo={this.props.userId}
+        onSwChange={this.handleSwToggle}
+        onSwLoad={this.handleSwToggle}
+      />
+    </li>)
   }
 }
 
