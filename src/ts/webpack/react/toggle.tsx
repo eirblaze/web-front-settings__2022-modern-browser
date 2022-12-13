@@ -3,6 +3,7 @@ import React from "react"
 export interface ToggleProp {
   swNo: number
   label?: string
+  onSwChange: (value: boolean)=>void
 }
 export interface ToggleState {
   isToggleOn: boolean
@@ -20,7 +21,8 @@ export class Toggle extends React.Component<ToggleProp,ToggleState> {
   handleClick() {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
-    }));
+    }))
+    this.props.onSwChange(this.state.isToggleOn)
   }
 
   render() {
