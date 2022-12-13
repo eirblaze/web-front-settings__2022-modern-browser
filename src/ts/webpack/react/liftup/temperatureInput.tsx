@@ -10,7 +10,7 @@ export interface TemperatureInputProp {
   label?: string
   temperature: string
   scale: string
-  onTemperatureChange: React.ChangeEventHandler<any>
+  onTemperatureChange: (value: string)=>void
 }
 
 export class TemperatureInput extends React.Component<TemperatureInputProp> {
@@ -19,7 +19,7 @@ export class TemperatureInput extends React.Component<TemperatureInputProp> {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e: any) {
+  handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     this.props.onTemperatureChange(e.target.value)
   }
 
