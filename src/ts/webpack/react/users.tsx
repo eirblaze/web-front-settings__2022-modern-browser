@@ -5,7 +5,7 @@ import { merge } from "webpack-merge"
 export interface UsersProp {
   userId: number
   userName: string
-  fare: number
+  運賃: number
 }
 export interface UsersState {
   css: React.CSSProperties
@@ -44,7 +44,7 @@ export class User extends React.Component<UsersProp,UsersState> {
         onSwChange={this.handleSwToggle}
         onSwLoad={this.handleSwToggle}
       />
-      {this.props.fare}&yen;
+      {this.props.運賃}&yen;
     </li>)
   }
 }
@@ -52,14 +52,16 @@ export class User extends React.Component<UsersProp,UsersState> {
 export const UserList: React.FC<{
   userList: {
     name: string
-    fare: number
+    運賃: number
   }[],
+  onFareChange?: (運賃: number)=>void
+  onFareLoad?: (運賃: number)=>void
 }> = (props) => <ul>
 {
   props.userList.map( (iterator,index) => <User
     userId={index}
     userName={iterator.name}
-    fare={iterator.fare}
+    運賃={iterator.運賃}
     key={index.toString()}
   />)
 }
