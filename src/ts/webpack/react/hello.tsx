@@ -10,19 +10,19 @@ function MyApp() {
       <UserList userList={[
         {
           name: "Aさん",
-          fare: 100,
+          運賃: 100,
         },
         {
           name: "Bさん",
-          fare: 100,
+          運賃: 100,
         },
         {
           name: "Cさん",
-          fare: 50,
+          運賃: 50,
         },
         {
           name: "Dさん",
-          fare: 50,
+          運賃: 50,
         },
       ]}/>
       <p>運賃: </p>

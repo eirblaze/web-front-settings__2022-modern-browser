@@ -2,17 +2,17 @@ import React from "react"
 import {Toggle} from "./toggle"
 import { merge } from "webpack-merge"
 
-export interface UsersProp {
+export interface UserProp {
   userId: number
   userName: string
   運賃: number
 }
-export interface UsersState {
+export interface UserState {
   css: React.CSSProperties
 }
 
-export class User extends React.Component<UsersProp,UsersState> {
-  constructor(props:UsersProp) {
+export class User extends React.Component<UserProp,UserState> {
+  constructor(props:UserProp) {
     super(props)
     this.state = {
       css: {}
@@ -20,14 +20,14 @@ export class User extends React.Component<UsersProp,UsersState> {
   }
 
   handleMouseEnter:React.MouseEventHandler<HTMLLIElement> = e => {
-    this.setState({css: merge(this.state.css,{borderColor: "maroon"})})
+    this.setState({css: merge(this.state.css,{borderColor: "hsl(54, 61%, 55%)"})})
   }
   handleMouseLeave:React.MouseEventHandler<HTMLLIElement> = e => {
     this.setState({css: merge(this.state.css,{borderColor: "transparent"})})
   }
 
   handleSwToggle = (isOn:boolean) => {
-    this.setState({css: merge(this.state.css,{backgroundColor: isOn ? "maroon" : "transparent"})})
+    this.setState({css: merge(this.state.css,{backgroundColor: isOn ? "hsl(0, 100%, 25%)" : "transparent"})})
   }
   
   render() {
@@ -49,20 +49,29 @@ export class User extends React.Component<UsersProp,UsersState> {
   }
 }
 
-export const UserList: React.FC<{
+export interface UserListProp {
   userList: {
     name: string
     運賃: number
   }[],
   onFareChange?: (運賃: number)=>void
   onFareLoad?: (運賃: number)=>void
-}> = (props) => <ul>
-{
-  props.userList.map( (iterator,index) => <User
-    userId={index}
-    userName={iterator.name}
-    運賃={iterator.運賃}
-    key={index.toString()}
-  />)
 }
-</ul>
+export interface UserListState {}
+export class UserList extends React.Component<UserListProp,UserListProp> {
+  constructor(props: UserListProp) {
+    super(props)
+  }
+  render() { return<ul>
+    {
+      this.props.userList.map( (iterator,index) => <User
+        userId={index}
+        userName={iterator.name}
+        運賃={iterator.運賃}
+        key={index.toString()}
+      />)
+    }
+    </ul>
+  }
+}
+
