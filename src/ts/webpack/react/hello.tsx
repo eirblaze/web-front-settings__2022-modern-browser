@@ -7,15 +7,16 @@ export interface UserListProp {
 }
 
 const handleMouseEnter:React.MouseEventHandler<HTMLLIElement> = e => {
-  e.currentTarget.style.backgroundColor = "maroon"
+  e.currentTarget.style.border = "1px solid maroon"
 }
 const handleMouseLeave:React.MouseEventHandler<HTMLLIElement> = e => {
-  e.currentTarget.style.backgroundColor = "transparent"
+  e.currentTarget.style.border = "1px solid transparent"
 }
 
 const Users: React.FC<UserListProp> = (props) => <ul>
   {
     props.userList.map( (iterator,index) => <li
+      className="sw-wrap"
       key={index.toString()}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
