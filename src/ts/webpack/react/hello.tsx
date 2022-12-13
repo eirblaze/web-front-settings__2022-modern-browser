@@ -25,7 +25,6 @@ function MyApp() {
           運賃: 50,
         },
       ]}/>
-      <p>運賃: </p>
     </form>
     <TemperatureCalc />
   </div>
