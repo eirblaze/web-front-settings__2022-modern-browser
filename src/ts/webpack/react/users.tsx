@@ -1,6 +1,5 @@
 import React from "react"
 import {Toggle} from "./toggle"
-import { merge } from "webpack-merge"
 
 export interface UserProp {
   userId: number
@@ -25,17 +24,9 @@ export class User extends React.Component<UserProp,UserState> {
   }
 
   // アロー関数だと自動的にクラスのthis(=定義時点)にbindされる。 https://zenn.dev/souhal/articles/905ea271d4b070
-  handleMouseEnter:React.MouseEventHandler<HTMLLIElement> = e => {
-    this.setState({css: merge(this.state.css,{borderColor: "hsl(54, 61%, 55%)"})})
-  }
-  handleMouseLeave:React.MouseEventHandler<HTMLLIElement> = e => {
-    this.setState({css: merge(this.state.css,{borderColor: "transparent"})})
-  }
-
   handleSwToggle = (isOn:boolean) => {
     const updatedFare = isOn ? this.props.運賃 : 0
     this.setState({
-      css: merge(this.state.css,{backgroundColor: isOn ? "hsl(0, 100%, 25%)" : "transparent"}),
       currentFare: updatedFare,
     })
     if ( this.props.onCurrentFareChange !== undefined ) this.props.onCurrentFareChange(this.props.userId, updatedFare)
@@ -45,8 +36,6 @@ export class User extends React.Component<UserProp,UserState> {
     const classNamePrefix = "sw-wrap"
     return (<li
       className={`${classNamePrefix} ${classNamePrefix}__${this.props.userId}`}
-      onMouseEnter={this.handleMouseEnter}
-      onMouseLeave={this.handleMouseLeave}
       style={this.state.css}
     >
       {this.props.userName}

@@ -14,13 +14,10 @@ export class Toggle extends React.Component<ToggleProp,ToggleState> {
   constructor(props:ToggleProp) {
     super(props);
     this.state = {isToggleOn: true};
-
-    // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
     if (this.props.onSwLoad !== undefined) this.props.onSwLoad(this.state.isToggleOn)
   }
 
-  handleClick() {
+  handleClick = () => {
     this.setState(prevState => {
       const newSwState = !prevState.isToggleOn
       if (this.props.onSwChange !== undefined) this.props.onSwChange(newSwState)
@@ -32,7 +29,7 @@ export class Toggle extends React.Component<ToggleProp,ToggleState> {
 
   render() {
     return (
-      <button onClick={this.handleClick} type="button">
+      <button onClick={this.handleClick} type="button" className={`sw ${this.state.isToggleOn ? 'sw-on' : 'sw-off'}`}>
         {this.state.isToggleOn ? 'ON' : 'OFF'}
       </button>
     );
