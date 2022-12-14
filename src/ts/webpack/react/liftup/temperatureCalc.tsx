@@ -14,7 +14,7 @@ export interface TemperatureCalcState {
 export class TemperatureCalc extends React.Component<TemperatureCalcProp, TemperatureCalcState> {
   constructor(props: TemperatureCalcProp) {
     super(props)
-    this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
+    this.handleCelsiusChange = this.handleCelsiusChange.bind(this); // thisの中身を固定 https://zenn.dev/souhal/articles/905ea271d4b070
     this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
     this.state = {temperature: '', scale: 'c'};
   }

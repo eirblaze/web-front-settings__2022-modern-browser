@@ -24,6 +24,7 @@ export class User extends React.Component<UserProp,UserState> {
     if ( this.props.onCurrentFareLoad !== undefined ) this.props.onCurrentFareLoad(this.props.userId, this.state.currentFare)
   }
 
+  // アロー関数だと自動的にクラスのthis(=定義時点)にbindされる。 https://zenn.dev/souhal/articles/905ea271d4b070
   handleMouseEnter:React.MouseEventHandler<HTMLLIElement> = e => {
     this.setState({css: merge(this.state.css,{borderColor: "hsl(54, 61%, 55%)"})})
   }
