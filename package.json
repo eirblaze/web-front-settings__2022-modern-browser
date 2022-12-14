@@ -17,7 +17,7 @@
     "gs-w": "run-s gs gs-wo",
     "jswp": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" NODE_ENV=\"development\" webpack",
     "jswp-r": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" NODE_ENV=\"production\" webpack",
-    "jswp-a": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" NODE_ENV=\"development\" webpack --analyze",
+    "jswp-a": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" NODE_ENV=\"production\" webpack --analyze",
     "startwp": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" NODE_ENV=\"development\" webpack serve",
     "start": "run-p startwp gs-w",
     "test": "cross-env TS_NODE_PROJECT=\"tsconfig-for-tasks.json\" jest",
