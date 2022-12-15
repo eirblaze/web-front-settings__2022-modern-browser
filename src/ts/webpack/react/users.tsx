@@ -40,6 +40,7 @@ export class User extends React.Component<UserProp,UserState> {
     >
       {this.props.userName}
       <Toggle
+        swGroupName="fare-sw"
         swNo={this.props.userId}
         onSwChange={this.handleSwToggle}
         onSwLoad={this.handleSwToggle}
