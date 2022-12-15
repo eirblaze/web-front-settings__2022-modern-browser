@@ -2,6 +2,7 @@ import { Configuration as WpCfg, WebpackPluginInstance } from "webpack"
 import { resolve as pathResolve } from "path"
 import merge from "webpack-merge"
 import { nodeModuleAlias, wpAlias } from "./tasks/getTsCfg"
+import * as path from "path"
 nodeModuleAlias(__dirname)
 
 // plugin
@@ -126,7 +127,10 @@ export default function (env: any, argv: any): WpCfg {
   // analyze
   if (analyze) {
     wpOptions.push({
-      plugins: [new BundleAnalyzerPlugin() as WebpackPluginInstance],
+      plugins: [new BundleAnalyzerPlugin({
+        analyzerMode: "static",
+        reportFilename: path.resolve(__dirname,"bundle-analyzer-report.html")
+      })],
     })
   }
 
