@@ -1,6 +1,7 @@
 import React from "react"
 
 export interface ToggleProp {
+  swGroupName: string
   swNo: number
   label?: string
   onSwChange?: (value: boolean)=>void
@@ -27,10 +28,11 @@ export class Toggle extends React.Component<ToggleProp,ToggleState> {
     })
   }
 
-  render() {
+  render = () => {
     return (
       <button onClick={this.handleClick} type="button" className={`sw ${this.state.isToggleOn ? 'sw-on' : 'sw-off'}`}>
         {this.state.isToggleOn ? 'ON' : 'OFF'}
+        <input type="hidden" id="userid" name={`sw__${this.props.swGroupName}-${this.props.swNo}`} value={`${this.state.isToggleOn}`} />
       </button>
     );
   }
