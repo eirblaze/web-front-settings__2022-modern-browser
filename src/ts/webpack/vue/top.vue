@@ -34,7 +34,20 @@ const site_contents = {
 export default {
   data () {
     return {
-      display_text: "display - text",
+      site_contents: {
+        sample: {
+          href: "#t1",
+          titleEn: "title text",
+          titleJp: "タイトルテキスト",
+          description: "詳細テキスト"
+        },
+        sub: {
+          href: "#t2",
+          titleEn: "mnop",
+          titleJp: "サブ",
+          description: "サブ詳細"
+        },
+      },
     }
   }
 }

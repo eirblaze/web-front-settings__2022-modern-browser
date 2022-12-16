@@ -31,9 +31,6 @@ export const externals: WpCfg = {
     /^(jquery|\$)$/i,
     // /^firebase($|\/.+$)/i,
     /^mathjax/i,
-    {
-      vue: "Vue",
-    },
     // /^@pug\/lib\/data\/scheduler/, // @ 書式はサポートしていない
     // {
     //   firebase: {

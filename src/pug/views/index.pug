@@ -8,8 +8,10 @@ html(lang="ja")
     link(rel="stylesheet", href="/assets/css/index.css")
     if isDev
       script(src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous")
+      script(src="https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js")
     else
       script(src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous")
+      script(src="https://cdn.jsdelivr.net/npm/vue@2.7.11")
 
     script(src="/assets/js/main.js")
     script.
@@ -24,3 +26,5 @@ html(lang="ja")
     ul.sample-list
       li.sample-list__member
         a(href="#") abcdefg
+
+    #app-contents-index-menu

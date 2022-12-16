@@ -1,16 +1,14 @@
 import { hideNoJs } from "@wp/main/example/hideNoJs"
 import { makeUrl } from "@wp/main/example/makeUrl"
-import Vue from 'vue/dist/vue.runtime.esm-browser'
-import VueTopIndex from "@wp/vue/top"
+import { createApp } from "vue"
+import VueTopIndex from "@wp/vue/top.vue"
 
 console.log("webpack main")
 hideNoJs()
 console.log("makeUrl", makeUrl("/aa/abcdefghi"))
 
 // 型推論を有効にする
-const Component = Vue.extend({
-  el: '#app-contents-index-menu',
-  render: (createElement) => createElement(VueTopIndex),
-  components: { VueTopIndex }
+$(()=>{
+  createApp(VueTopIndex).mount('#app-contents-index-menu')
 })
 

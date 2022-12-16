@@ -37,7 +37,7 @@ export default function (env: any, argv: any): WpCfg {
   })
   if (isDev) {
     wpOptions.push({
-      devtool: !isDev ? false : wpIsLocal ? "eval-cheap-source-map" : "eval", // ソースマップスタイル設定。ビルド、リビルドの速度に関係する。 - https://webpack.js.org/configuration/devtool/
+      devtool: !isDev ? false : wpIsLocal ? "eval-source-map" : "eval", // ソースマップスタイル設定。ビルド、リビルドの速度に関係する。 - https://webpack.js.org/configuration/devtool/
     })
   }
 
