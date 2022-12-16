@@ -55,9 +55,9 @@ export default {
 
 </script>
 
-<!-- <style lang="sass">
-body
-  .example
-    color: hsl(54, 61%, 55%)
-</style> -->
+<style lang="scss">
+.example {
+  color: hsl(94, 61%, 55%)
+}
+</style>
 

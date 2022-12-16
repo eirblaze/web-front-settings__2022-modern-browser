@@ -11,11 +11,19 @@ const cfg: WpCfg = {
   module: {
     rules: [
       {
-        test: /\.s[sc]ss$/,
+        test: /\.scss$/,
         use: [
           'vue-style-loader',
           'css-loader',
           'sass-loader',
+        ]
+      },
+      {
+        test: /\.sass$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader?indentedSyntax',
         ]
       },
       {
