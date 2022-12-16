@@ -6,6 +6,7 @@ import { publicPath } from "#root/ioinfo"
 // import devExpressJs from "./express"
 // import { HotModuleReplacementPlugin } from "webpack"
 import {wpCfg as wordPressProxyCfg} from "./wp-proxy"
+// import {aliveGitHubCodespaces} from "#root/tasks/getEnv"
 
 // interface WpCfg extends WpCfgNeutral {
 //   devServer?: WpDevServerCfg;
@@ -30,6 +31,7 @@ export default function (projectRoot: string): WpCfg {
           },
         ],
         port: 8090,
+        // port: aliveGitHubCodespaces ? 80 : 8090,
         // public            : 'localhost:8090',
         // host              : '0.0.0.0',
 
