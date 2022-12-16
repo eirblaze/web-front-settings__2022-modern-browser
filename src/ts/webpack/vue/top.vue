@@ -42,9 +42,9 @@ export default {
 
 </script>
 
-<style lang="sass">
+<!-- <style lang="sass">
 body
   .example
     color: hsl(54, 61%, 55%)
-</style>
+</style> -->
 
