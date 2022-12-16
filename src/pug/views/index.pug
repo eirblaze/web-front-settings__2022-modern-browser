@@ -9,14 +9,15 @@ html(lang="ja")
 
     if isDev
       //- react development - https://reactjs.org/docs/getting-started.html
+      script(src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous")
       script(src='https://unpkg.com/react@18/umd/react.development.js')
       script(src='https://unpkg.com/react-dom@18/umd/react-dom.development.js')
     else
       //- react production - https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+      script(src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous")
       script(src='https://unpkg.com/react@18/umd/react.production.min.js')
       script(src='https://unpkg.com/react-dom@18/umd/react-dom.production.min.js')
 
-    script(src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous")
     script(src="/assets/js/main.js")
     script.
       (function(){
