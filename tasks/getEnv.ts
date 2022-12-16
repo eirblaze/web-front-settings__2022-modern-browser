@@ -2,6 +2,5 @@ import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
 const argv = yargs(hideBin(process.argv)).argv
-const env = argv["env"] || "dev"
-export const isDev = env != "production" && env != "prod" && env != "analyze"
-export const analyze = env == "analyze"
+export const analyze = "analyze" in argv
+export const isDev = process.env.NODE_ENV != "production" && !analyze

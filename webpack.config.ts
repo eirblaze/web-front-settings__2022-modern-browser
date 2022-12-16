@@ -7,11 +7,7 @@ nodeModuleAlias(__dirname)
 
 // plugin
 import TerserPlugin from "terser-webpack-plugin"
-
-//@ts-ignore
-import BundleAnalyzerPlugin from "webpack-bundle-analyzer"
-
-//@ts-ignore
+import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer"
 import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plugin"
 
 // import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin"
@@ -29,7 +25,7 @@ export default function (env: any, argv: any): WpCfg {
   // set env
   // console.log("env",env)
   // console.log("argv",argv)
-  const wpIsLocal = argv.env != undefined && argv.env.WEBPACK_SERVE == true
+  const wpIsLocal = "env" in argv && "WEBPACK_SERVE" in argv.env && argv.env.WEBPACK_SERVE == true
   // console.log("wpIsLocal", wpIsLocal)
 
   // init
@@ -89,7 +85,8 @@ export default function (env: any, argv: any): WpCfg {
 
   // 重複パッケージチェック https://www.npmjs.com/package/duplicate-package-checker-webpack-plugin
   wpOptions.push({
-    plugins: [new DuplicatePackageCheckerPlugin() as WebpackPluginInstance],
+    //@ts-ignore
+    plugins: [new DuplicatePackageCheckerPlugin()],
   })
 
   // minify
