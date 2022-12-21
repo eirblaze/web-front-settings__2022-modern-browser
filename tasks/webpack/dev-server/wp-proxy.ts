@@ -1,5 +1,5 @@
-import { Configuration as WpCfgNeutral } from "webpack";
-import { Configuration as WpDevServerCfg } from "webpack-dev-server";
+import { type Configuration as WpCfgNeutral } from "webpack";
+import { type Configuration as WpDevServerCfg } from "webpack-dev-server";
 
 interface WpCfg extends WpCfgNeutral {
   devServer?: WpDevServerCfg;

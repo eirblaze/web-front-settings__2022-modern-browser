@@ -1,4 +1,4 @@
-import { Configuration as WpCfg, WebpackPluginInstance } from "webpack"
+import { type Configuration as WpCfg, type WebpackPluginInstance } from "webpack"
 import { resolve as pathResolve } from "path"
 import merge from "webpack-merge"
 import { nodeModuleAlias, wpAlias } from "./tasks/getTsCfg"
