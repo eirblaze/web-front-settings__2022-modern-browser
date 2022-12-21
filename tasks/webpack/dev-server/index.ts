@@ -1,5 +1,5 @@
-import { Configuration as WpCfg } from "webpack";
-import { Configuration as WpDevServerCfg } from "webpack-dev-server";
+import { type Configuration as WpCfg } from "webpack";
+// import { type Configuration as WpDevServerCfg } from "webpack-dev-server";
 import merge from "webpack-merge"
 import path from "path"
 import { publicPath } from "#root/ioinfo"
