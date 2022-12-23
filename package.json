@@ -30,6 +30,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@babel/types": "^7.20.5",
     "@jest/types": "^29.3.1",
+    "@types/chrome": "^0.0.206",
     "@types/duplicate-package-checker-webpack-plugin": "^2.1.2",
     "@types/gulp": "^4.0.10",
     "@types/gulp-sass": "^5.0.0",
