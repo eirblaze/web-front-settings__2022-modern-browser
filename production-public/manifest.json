@@ -5,6 +5,6 @@
   "version": "1.0",
   "action": {
     "default_popup": "hello-chrome-extension.html",
-    "default_icon": "hello_extensions.png"
+    "default_icon": "assets/sample/img/hello_extensions.png"
   }
 }
