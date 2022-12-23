@@ -17,9 +17,13 @@ export const wpSrc = [
     name: "main",
     file: "src/ts/webpack/wp-main.ts",
   },
+  // {
+  //   name: "hello-chrome-ext",
+  //   file: "src/ts/webpack/hello-chrome-ext.ts",
+  // },
   {
-    name: "hello-chrome-ext",
-    file: "src/ts/webpack/hello-chrome-ext.ts",
+    name: "chrome-context-menu",
+    file: "src/ts/webpack/chrome-context-menu.ts"
   },
 ]
 export const wpIo: WpCfg = {

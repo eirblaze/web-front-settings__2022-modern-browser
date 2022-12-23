@@ -3,8 +3,14 @@
   "name": "Hello Extensions",
   "description": "Base Level Extension",
   "version": "1.0",
-  "action": {
-    "default_popup": "hello-chrome-extension.html",
-    "default_icon": "assets/sample/img/hello_extensions.png"
-  }
+
+  "background": {
+    "service_worker": "assets/js/chrome-context-menu.js",
+    "type": "module"
+  },
+
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ]
 }
