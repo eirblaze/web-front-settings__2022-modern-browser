@@ -1,4 +1,4 @@
-import { Configuration as WpCfg } isolatedModulesfrom "webpack"
+import { Configuration as WpCfg } from "webpack"
 import { resolve as pathResolve } from "path"
 
 // 共通
