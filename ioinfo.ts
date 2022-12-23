@@ -1,4 +1,4 @@
-import { Configuration as WpCfg } from "webpack"
+import { Configuration as WpCfg } isolatedModulesfrom "webpack"
 import { resolve as pathResolve } from "path"
 
 // 共通
@@ -16,6 +16,10 @@ export const wpSrc = [
   {
     name: "main",
     file: "src/ts/webpack/wp-main.ts",
+  },
+  {
+    name: "main",
+    file: "src/ts/webpack/hello-chrome-ext.ts",
   },
 ]
 export const wpIo: WpCfg = {
