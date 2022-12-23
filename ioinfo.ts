@@ -18,7 +18,7 @@ export const wpSrc = [
     file: "src/ts/webpack/wp-main.ts",
   },
   {
-    name: "main",
+    name: "hello-chrome-ext",
     file: "src/ts/webpack/hello-chrome-ext.ts",
   },
 ]
