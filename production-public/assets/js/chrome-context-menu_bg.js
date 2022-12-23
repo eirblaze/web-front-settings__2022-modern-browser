@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener((()=>{chrome.contextMenus.create({id:"root",title:"リンクテキスト取得"}),chrome.contextMenus.create({id:"child1",parentId:"root",title:"none"})})),chrome.contextMenus.onClicked.addListener((e=>{console.log(e);chrome.tabs.sendMessage(tabs[0].id,"getClickedTxt",(function(e){console.log("test");chrome.contextMenus.update("child1",{title:e.value})}))}));

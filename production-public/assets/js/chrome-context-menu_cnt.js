@@ -1,0 +1,1 @@
+!function(){let e;document.addEventListener("contextmenu",(function(n){e=n.currentTarget?.outerText||"none"}),!0),chrome.runtime.onMessage.addListener((function(n,t,o){"getClickedTxt"==n&&o({value:e})}))}();

@@ -4,10 +4,21 @@
   "description": "Base Level Extension",
   "version": "1.0",
 
+  "icons": {
+    "16": "assets/sample/img/hello_extensions.png"
+  },
+
   "background": {
-    "service_worker": "assets/js/chrome-context-menu.js",
+    "service_worker": "assets/js/chrome-context-menu_bg.js",
     "type": "module"
   },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.mozilla.org/*"],
+      "js": ["assets/js/chrome-context-menu_cnt.js"]
+    }
+  ],
 
   "permissions": [
     "activeTab",
