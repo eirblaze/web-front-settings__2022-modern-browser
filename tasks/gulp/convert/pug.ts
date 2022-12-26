@@ -34,35 +34,21 @@ export default function buildHtml(): NodeJS.ReadWriteStream {
     // pug のメタデータを外部で指定する機能。同じ名前のjsonファイルを設置する。
     .pipe(
       data((file: { basename: string; path: string; contents: Buffer }) => {
-        // console.log(
-        //   file,
-        //   file.basename,
-        //   Buffer.isBuffer(file.contents),
-        //   file.path,
-        //   path.resolve(
-        //     path.dirname(file.path),
-        //     `${path.basename(file.basename, path.extname(file.basename))}.json`
-        //   )
-        // )
+        const pugDataPath = path.resolve(
+          path.dirname(file.path),
+          `${path.basename(
+            file.basename,
+            path.extname(file.basename)
+          )}.json`
+        )
+        const pageData = !fs.existsSync(pugDataPath) ? {} : JSON.parse(
+          fs.readFileSync(pugDataPath,{
+            encoding: "utf8",
+          })
+        )
+
         return {
-          pageMetaData: merge(
-            JSON.parse(
-              fs.readFileSync(
-                path.resolve(
-                  path.dirname(file.path),
-                  `${path.basename(
-                    file.basename,
-                    path.extname(file.basename)
-                  )}.json`
-                ),
-                {
-                  encoding: "utf8",
-                }
-              )
-            ),
-            siteData
-          ),
-          isDev: isDev,
+          pageMetaData: merge(pageData,siteData),
         }
       })
     )
