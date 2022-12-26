@@ -1,4 +1,4 @@
-import { Configuration as WpCfg, WebpackPluginInstance } from "webpack"
+import { type Configuration as WpCfg, type WebpackPluginInstance, type Argument } from "webpack"
 import { resolve as pathResolve } from "path"
 import merge from "webpack-merge"
 import { nodeModuleAlias, wpAlias } from "./tasks/getTsCfg"
@@ -25,7 +25,7 @@ export default function (env: any, argv: any): WpCfg {
   // set env
   // console.log("env",env)
   // console.log("argv",argv)
-  const wpIsLocal = "env" in argv && "WEBPACK_SERVE" in argv.env && argv.env.WEBPACK_SERVE == true
+  const wpIsLocal = argv?.env?.WEBPACK_SERVE === true
   // console.log("wpIsLocal", wpIsLocal)
 
   // init
