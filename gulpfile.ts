@@ -3,7 +3,7 @@ import { nodeModuleAlias } from "./tasks/getTsCfg"
 // import { resolve as pathResolve, join as pathJoin } from "path"
 nodeModuleAlias(__dirname)
 
-import { gulpCssSrcRoot,gulpCss,gulpPugSrcBaseDir,gulpPug } from "#root/ioinfo"
+import { gulpCssSrcRoot,gulpCss,gulpPugSrcBaseDir,gulpPug,gulpChromeManifest } from "#root/ioinfo"
 import cssTask from "#tgp/convert/css"
 import pugTask from "#tgp/convert/pug"
 import chromeManifest from "#tgp/convert/chromeManifest"
@@ -27,4 +27,7 @@ for (const watchSingle of gulpCss.watch) {
 for (const watchSingle of gulpPug.watch) {
   watchDir.push((gulpPugSrcBaseDir + "/" + watchSingle).replace(pathSearch,pathReplace))
 }
+// chromeManifest
+watchDir.push((gulpChromeManifest.src))
+
 export const watcher = () => watch(watchDir, all)

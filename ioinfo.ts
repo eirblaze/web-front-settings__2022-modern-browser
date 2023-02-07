@@ -107,7 +107,7 @@ export const siteMap = {
   dest: "assets/data",
 }
 
-export const chromeManifest = {
+export const gulpChromeManifest = {
   src: "./src/manifest.json",
   dest: ".",
 }
