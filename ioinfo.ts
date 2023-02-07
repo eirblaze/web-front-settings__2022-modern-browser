@@ -106,3 +106,8 @@ export const siteMap = {
   src: "./tasks/gulp/sitemap.json",
   dest: "assets/data",
 }
+
+export const chromeManifest = {
+  src: "./src/manifest.json",
+  dest: ".",
+}

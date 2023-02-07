@@ -6,13 +6,14 @@ nodeModuleAlias(__dirname)
 import { gulpCssSrcRoot,gulpCss,gulpPugSrcBaseDir,gulpPug } from "#root/ioinfo"
 import cssTask from "#tgp/convert/css"
 import pugTask from "#tgp/convert/pug"
+import chromeManifest from "#tgp/convert/chromeManifest"
 import genSiteMapTask from "#tgp/generateSitemap"
-import path from "path"
 
 export const css = cssTask
 export const pug = pugTask
+export const mf = chromeManifest
 export const sitemap = genSiteMapTask
-export const all = parallel([cssTask, pugTask, genSiteMapTask])
+export const all = parallel([chromeManifest, cssTask, pugTask, genSiteMapTask])
 
 // watch mode
 const watchDir : string[] = []
