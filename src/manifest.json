@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "js": ["assets/js/chrome-context-menu_cnt.js"]
+      "js": ["./assets/js/chrome-context-menu_cnt.js"]
     }
   ],
 
