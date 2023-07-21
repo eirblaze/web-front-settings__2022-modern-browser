@@ -10,6 +10,7 @@ import { isDev } from "#tsk/getEnv"
 // import { sitemap } from "#root/gulpfile"
 
 export default async function generateSitemap() {
+  if (!siteMap.exist) return null
   const getFileList = async function (rootDir:string, externalDir = {}) {
     const files = await fs.promises.readdir(rootDir)
     const currentDirMap = {
@@ -35,7 +36,7 @@ export default async function generateSitemap() {
     return currentDirMap
   }
 
-  siteData["siteMap"] = await getFileList(gulpPug.srcViewsRoot, {
+  siteData["siteMap"] = await getFileList(gulpPug.src.baseDir, {
     lib:""
   })
 
