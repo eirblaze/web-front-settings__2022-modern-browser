@@ -45,6 +45,7 @@ export default function (projectRoot: string): WpCfg {
 
           try {
             await fsPromise.readFile(pugSrc)
+            console.log("pug render", pugPath, pugSrc)
             return res.render(pugPath, {
               // title: "Express.js index",
               isDev: true,

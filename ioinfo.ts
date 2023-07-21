@@ -89,12 +89,11 @@ export const gulpCss: GulpCfg = {
 export const gulpPug: GulpCfg = {
   watch: ["**/*.pug", "**/*.json", "../lib/**/*.*"],
   src: {
-    baseDir: "./src/pug/",
+    baseDir: "./src/pug/views/",
     files: [
       "**/*.pug",
     ],
     ignoreFiles: [
-      "lib/*.pug",
     ]
   },
   dest: {
@@ -107,6 +106,7 @@ export const siteData = {
   pageNameSuffix: "Example - example.com"
 }
 export const siteMap = {
+  exist: true,
   src: "./tasks/gulp/sitemap.json",
   dest: "assets/data",
 }

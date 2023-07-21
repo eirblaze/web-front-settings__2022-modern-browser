@@ -17,7 +17,7 @@ export const all = parallel([cssTask, pugTask, genSiteMapTask])
 // watch mode
 const watchDir : string[] = []
 function genWatchPath(gulpCfg: GulpCfg) {
-  return gulpCfg.watch.map(srcStr=>pathJoin(gulpCfg.src.baseDir, srcStr).replace(/[/\\]{2,}/g, "/"))
+  return gulpCfg.watch.map(srcStr=>pathJoin(gulpCfg.src.baseDir, srcStr).replace(/[/\\]+/g, "/"))
 }
 
 watchDir.push(...genWatchPath(gulpCss))
