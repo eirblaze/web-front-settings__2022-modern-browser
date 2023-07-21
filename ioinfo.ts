@@ -53,37 +53,53 @@ export const externals: WpCfg = {
 
 // gulp
 
-interface GulpCfg {
-  src: string | string[]
-  dest: string
+export interface GulpCfg {
+  src: {
+    baseDir: string
+    files: string[]
+    ignoreFiles: string[]
+  }
+  dest: {
+    dir: string
+    suffix?: {
+      str: string
+      ignore: RegExp
+    }
+  }
   watch: string[]
 }
 
 // sass
-export const gulpCssSrcRoot = "./src/sass/"
 export const gulpCss: GulpCfg = {
   watch: ["**/*.sass", "**/*.scss"],
-  src: pathResolve(gulpCssSrcRoot, "index.sass"),
-  dest: "assets/css",
+  src: {
+    baseDir: "./src/sass/",
+    files: [
+      "index.sass",
+    ],
+    ignoreFiles: [],
+    // pathResolve(gulpCssSrcRoot, "index.sass")
+  },
+  dest: {
+    dir: "assets/css",
+  }
 }
 
 // pug
-export const gulpPugSrcBaseDir = "./src/pug/"
-const gulpPugSrcViewsRoot = gulpPugSrcBaseDir + "views/"
-export const webpackDevServerPugView = {
-  indexPath: gulpPugSrcViewsRoot,
-}
-export const gulpPug = {
-  watch: ["**/*.*"],
-  srcBaseDir: gulpPugSrcBaseDir,
-  srcViewsRoot: gulpPugSrcViewsRoot,
-  srcFiles: [
-    "**/*.pug",
-  ],
-  srcIgnoreFiles: [
-    "lib/*.pug",
-  ],
-  dest: "./",
+export const gulpPug: GulpCfg = {
+  watch: ["**/*.pug", "**/*.json", "../lib/**/*.*"],
+  src: {
+    baseDir: "./src/pug/",
+    files: [
+      "**/*.pug",
+    ],
+    ignoreFiles: [
+      "lib/*.pug",
+    ]
+  },
+  dest: {
+    dir: "./",
+  },
 }
 
 // sitemap gen
