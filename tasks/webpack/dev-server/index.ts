@@ -7,6 +7,7 @@ import { publicPath } from "#root/ioinfo"
 // import { HotModuleReplacementPlugin } from "webpack"
 import {wpCfg as wordPressProxyCfg} from "./wp-proxy"
 // import {aliveGitHubCodespaces} from "#root/tasks/getEnv"
+import setupMiddlewares from "./setupMiddlewares";
 
 // interface WpCfg extends WpCfgNeutral {
 //   devServer?: WpDevServerCfg;
@@ -49,7 +50,7 @@ export default function (projectRoot: string): WpCfg {
     },
   ]
 
-  // wpCfg.push(devExpressJs(projectRoot))
+  wpCfg.push(setupMiddlewares(projectRoot))
   wpCfg.push(wordPressProxyCfg)
 
   return merge(wpCfg)

@@ -1,11 +1,12 @@
 import path from "path"
 import { src, dest } from "gulp"
+import rename from "gulp-rename"
 //@ts-ignore
 import pug from "gulp-pug"
 //@ts-ignore
 import prettier from "gulp-prettier"
 //@ts-ignore
-import minInline from 'gulp-minify-inline'
+import minInline from "gulp-minify-inline"
 import newer from "gulp-newer"
 //@ts-ignore
 import data from "gulp-data"
@@ -13,18 +14,13 @@ import fs from "fs"
 import { merge } from "webpack-merge"
 
 import { isDev } from "#tsk/getEnv"
-import { gulpPug,publicPath,siteData } from "#root/ioinfo"
-
-const srcFilesWithRoot: string[] = []
-for (const srcFile of gulpPug.srcFiles) {
-  srcFilesWithRoot.push(path.resolve(gulpPug.srcViewsRoot, srcFile))
-}
-for (const srcIgnoreFile of gulpPug.srcIgnoreFiles) {
-  srcFilesWithRoot.push(`!${path.resolve(gulpPug.srcViewsRoot, srcIgnoreFile)}`)
-}
+import { gulpPug, publicPath, siteData } from "#root/ioinfo"
+import { srcArray, addSuffixStr } from "#tsk/gulp/convert/_util"
+// @ts-ignore
+import htmlbeautify from "gulp-html-beautify"
 
 export default function buildHtml(): NodeJS.ReadWriteStream {
-  let stream: NodeJS.ReadWriteStream = src(srcFilesWithRoot)
+  let stream: NodeJS.ReadWriteStream = src(srcArray(gulpPug))
 
   if (isDev) {
     stream = stream.pipe(newer(publicPath.dev))
@@ -36,34 +32,56 @@ export default function buildHtml(): NodeJS.ReadWriteStream {
       data((file: { basename: string; path: string; contents: Buffer }) => {
         const pugDataPath = path.resolve(
           path.dirname(file.path),
-          `${path.basename(
-            file.basename,
-            path.extname(file.basename)
-          )}.json`
+          `${path.basename(file.basename, path.extname(file.basename))}.json`
         )
-        const pageData = !fs.existsSync(pugDataPath) ? {} : JSON.parse(
-          fs.readFileSync(pugDataPath,{
-            encoding: "utf8",
-          })
-        )
+        const pageData = !fs.existsSync(pugDataPath)
+          ? {}
+          : JSON.parse(
+              fs.readFileSync(pugDataPath, {
+                encoding: "utf8",
+              })
+            )
 
         return {
-          pageMetaData: merge(pageData,siteData),
+          isDev: isDev,
+          pageMetaData: merge(pageData, siteData),
         }
       })
     )
-    .pipe(pug({
-      locals: gulpPug.srcBaseDir,
-    }))
+    .pipe(
+      pug({
+        locals: gulpPug.src.baseDir,
+        // @ts-ignore
+        doctype: "html",
+      })
+    )
 
-  if (isDev) {
-    stream = stream
-    .pipe(prettier())
-  } else {
-    stream = stream
-    .pipe(minInline())
-  }
+  stream = stream
+    // .pipe(
+    // 	prettier({
+    // 		bracketSpacing: true,
+    // 		bracketSameLine: false,
+    // 		singleAttributePerLine: false,
+    // 		semi: true,
+    // 	})
+    // )
+    .pipe(
+      htmlbeautify({
+        indent_size: 1,
+        indent_with_tabs: true,
+        eol: "\n",
+      })
+    )
+    .pipe(
+      rename((path) => {
+        // Updates the object in-place
+        path.basename = addSuffixStr(path.basename, gulpPug)
+      })
+    )
 
-  return stream
-  .pipe(dest(path.resolve(isDev ? publicPath.dev : publicPath.prod, gulpPug.dest)))
+  return stream.pipe(
+    dest(
+      path.resolve(isDev ? publicPath.dev : publicPath.prod, gulpPug.dest.dir)
+    )
+  )
 }
