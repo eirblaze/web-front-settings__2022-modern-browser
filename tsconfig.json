@@ -45,12 +45,12 @@
     /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     "paths": {
       "#root/*": ["*"],
-      "#tsk*": ["tasks*"],
-      "#tgp*": ["tasks/gulp*"],
-      "#twp*": ["tasks/webpack*"],
-      "@wp*": ["src/ts/webpack*"],
-      "@gp*": ["src/ts/gulp*"],
-      "@pug*": ["src/pug*"],
+      "#tsk/*": ["tasks/*"],
+      "#tgp/*": ["tasks/gulp/*"],
+      "#twp/*": ["tasks/webpack/*"],
+      "@wp/*": ["src/ts/webpack/*"],
+      "@gp/*": ["src/ts/gulp/*"],
+      "@pug/*": ["src/pug/*"],
     },
 
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */

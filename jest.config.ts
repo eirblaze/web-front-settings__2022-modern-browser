@@ -19,9 +19,38 @@ configs.push({
   moduleFileExtensions: ["ts", "tsx"],
 })
 
+// jestAlias
 configs.push({
   moduleNameMapper: jestAlias(__dirname),
 })
+
+// setup
+configs.push({
+  setupFiles: [
+    "./tasks/jest-cfg/setup.ts",
+  ],
+  setupFilesAfterEnv: [
+    "./tasks/jest-cfg/setup-after-env.ts",
+  ],
+})
+
+// front
+configs.push({
+  testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    html: `
+<html>
+<head></head>
+<body>
+</body>
+<html>
+`,
+  },
+  transform: {
+    "^.+\\.m?[tj]sx?$": "ts-jest",
+  },
+})
+
 
 console.log("jest merged cfg", merge(configs))
 export default merge(configs)
