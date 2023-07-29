@@ -43,10 +43,13 @@ export function jestAlias(projectRoot: string): { [index: string]: string } {
         if (
           Object.prototype.hasOwnProperty.call(all_.compilerOptions.paths, key)
         ) {
-          retTsAlias[key.replace(/\/?\*/, "/(.+)")] = path.resolve(
-            projectRoot,
-            (all_.compilerOptions.paths[key][0] || "").replace(/\/?\*/, "/$1")
-          )
+          for (const replaceVal of all_.compilerOptions.paths[key]) {
+            retTsAlias[key.replace(/\/?\*/, "/(.+)")] = []
+            retTsAlias[key.replace(/\/?\*/, "/(.+)")].push(path.join(
+              "<rootDir>",
+              (replaceVal || "").replace(/\/?\*/, "/$1")
+            ))
+          }
         }
       }
     }

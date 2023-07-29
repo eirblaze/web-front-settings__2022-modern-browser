@@ -5,18 +5,18 @@ import { beforeEach, afterEach } from "@jest/globals"
 
 // sessionStorageのモックを作成
 const mockSessionStorage = {
-  data: {},
-  getItem(key) {
-    return this.data[key] || null
+  data: new Map<string,string>(),
+  getItem(key: string) {
+    return this.data.get(key) || null
   },
-  setItem(key, value) {
-    this.data[key] = value
+  setItem(key: string, value: string) {
+    this.data.set(key,value)
   },
-  removeItem(key) {
-    this.data[key] = null
+  removeItem(key: string) {
+    this.data.delete(key)
   },
   clear() {
-    this.data = {}
+    this.data.clear()
   },
 }
 

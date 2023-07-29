@@ -1,14 +1,39 @@
 import { describe, expect, it, beforeEach, afterEach } from "@jest/globals"
+import { errorToMsg } from "#root/tasks/jest-cfg/util.test"
 
 describe("ブラウザ機能のモックそのものをテスト", () => {
-  it("fetch", async () => {
-    const mockedDefaultResponse = "mocked Default Response"
-    fetchMock.mockResponse(mockedDefaultResponse)
-    const data = await (async()=>{
-      const res = await fetch("https://example.com/")
-      return await res.text()
+  interface FetchTestReturn {
+    errorMsg?: string
+    resText?: string
+  }
+  async function fetchTest():Promise<FetchTestReturn> {
+    return await (async()=>{
+      try {
+        const res = await fetch("https://example.com/")
+        const data = await res.text()
+        return {
+          resText: data
+        }
+      } catch(e) {
+        return {
+          errorMsg: errorToMsg(e)
+        }
+      }
     })()
-    expect(data).toBe(mockedDefaultResponse)
+  }
+  it("fetch res", async () => {
+    const mockedDefaultResponse = "mocked Default Response"
+    fetchMock.mockResponseOnce(mockedDefaultResponse)
+    const data = await fetchTest()
+    expect(data?.resText).toBe(mockedDefaultResponse)
+    expect(data?.errorMsg).toBeUndefined()
+  })
+  it("fetch error", async () => {
+    const mockedDefaultResponse = "mocked Default Response"
+    fetchMock.mockRejectOnce(Error(mockedDefaultResponse))
+    const data = await fetchTest()
+    expect(data?.resText).toBeUndefined()
+    expect(data?.errorMsg).toBe(mockedDefaultResponse)
   })
 
   it("sessionStorage", () => {
