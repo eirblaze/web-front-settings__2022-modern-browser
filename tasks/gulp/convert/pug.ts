@@ -14,7 +14,7 @@ import fs from "fs"
 import { merge } from "webpack-merge"
 
 import { isDev } from "#tsk/getEnv"
-import { gulpPug, publicPath, siteData } from "#root/ioinfo"
+import { gulpPug, localPublicPath, siteData } from "#root/ioinfo"
 import { srcArray, addSuffixStr } from "#tsk/gulp/convert/_util"
 // @ts-ignore
 import htmlbeautify from "gulp-html-beautify"
@@ -23,7 +23,7 @@ export default function buildHtml(): NodeJS.ReadWriteStream {
   let stream: NodeJS.ReadWriteStream = src(srcArray(gulpPug))
 
   if (isDev) {
-    stream = stream.pipe(newer(publicPath.dev))
+    stream = stream.pipe(newer(localPublicPath.dev))
   }
 
   stream = stream
@@ -81,7 +81,7 @@ export default function buildHtml(): NodeJS.ReadWriteStream {
 
   return stream.pipe(
     dest(
-      path.resolve(isDev ? publicPath.dev : publicPath.prod, gulpPug.dest.dir)
+      path.resolve(isDev ? localPublicPath.dev : localPublicPath.prod, gulpPug.dest.dir)
     )
   )
 }

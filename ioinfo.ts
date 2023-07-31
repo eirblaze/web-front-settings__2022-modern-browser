@@ -5,7 +5,7 @@ import { resolve as pathResolve } from "path"
 
 export const extensions = [".ts", ".tsx", ".js", ".jsx", ".json", ".pug"]
 
-export const publicPath = {
+export const localPublicPath = {
   dev:  "./dev-public",
   prod: "./production-public",
 }
@@ -14,14 +14,23 @@ export const publicPath = {
 
 export const wpSrc = [
   {
-    name: "main",
-    file: "src/ts/webpack/wp-main.ts",
+    name: "s1-main",
+    file: "src/ts/webpack/service1-main.ts",
+  },
+  {
+    name: "s2-main",
+    file: "src/ts/webpack/service2-main.ts",
   },
 ]
 export const wpIo: WpCfg = {
   output: {
     filename: "assets/js/[name].js",
+
+    // dynamic import
+    publicPath: "https://example.com/pages/",
+    // chunkFormat: "array-push",
   },
+  target: ['webworker', "es2020"],
 }
 export const libName: string | "" = ""
 

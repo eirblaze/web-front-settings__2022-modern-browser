@@ -22,14 +22,6 @@ const cfg: WpCfg = {
               },
             },
           },
-          {
-            loader: 'webpack-preprocessor-loader',
-            options: {
-              params: {
-                isDev: isDev,
-              },
-            },
-          },
         ],
         // ローダーの処理対象から外すディレクトリ
         exclude: /node_modules/,

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkweb_front_settings_2022_modern_browser=globalThis.webpackChunkweb_front_settings_2022_modern_browser||[]).push([[859],{859:(e,r,s)=>{function t(e){return"https://example.jp/"+e.replace(/\/?(.+)\/?/i,"$1/")}s.r(r),s.d(r,{makeUrl:()=>t})}}]);

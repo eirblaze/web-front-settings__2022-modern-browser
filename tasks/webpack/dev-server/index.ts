@@ -2,7 +2,7 @@ import { type Configuration as WpCfg } from "webpack";
 // import { type Configuration as WpDevServerCfg } from "webpack-dev-server";
 import merge from "webpack-merge"
 import path from "path"
-import { publicPath } from "#root/ioinfo"
+import { localPublicPath } from "#root/ioinfo"
 // import devExpressJs from "./express"
 // import { HotModuleReplacementPlugin } from "webpack"
 import {wpCfg as wordPressProxyCfg} from "./wp-proxy"
@@ -26,7 +26,7 @@ export default function (projectRoot: string): WpCfg {
         // サーバー設定
         static: [
           {
-            directory: path.join(projectRoot, publicPath.dev),
+            directory: path.join(projectRoot, localPublicPath.dev),
           },
         ],
         port: 8090,

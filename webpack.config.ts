@@ -55,7 +55,7 @@ export default function (env: any, argv: any): WpCfg {
   // webpack dev server
   wpOptions.push({
     output: {
-      path: pathResolve(__dirname, isDev ? ioinfo.publicPath.dev : ioinfo.publicPath.prod),
+      path: pathResolve(__dirname, isDev ? ioinfo.localPublicPath.dev : ioinfo.localPublicPath.prod),
     },
   })
 

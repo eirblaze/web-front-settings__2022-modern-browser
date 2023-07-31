@@ -1,5 +1,5 @@
 // import dirTree from "directory-tree"
-import { gulpPug,siteMap,publicPath,siteData } from "#root/ioinfo"
+import { gulpPug,siteMap,localPublicPath,siteData } from "#root/ioinfo"
 // import { merge } from "webpack-merge"
 import fs from "fs"
 import path from "path"
@@ -43,7 +43,7 @@ export default async function generateSitemap() {
   return await gulp
     .src(siteMap.src)
     .pipe(header(JSON.stringify(siteData)))
-    .pipe(gulp.dest(path.resolve(isDev ? publicPath.dev : publicPath.prod, siteMap.dest)))
+    .pipe(gulp.dest(path.resolve(isDev ? localPublicPath.dev : localPublicPath.prod, siteMap.dest)))
 
   // const maps = []
   // const filteredTree = dirTree(

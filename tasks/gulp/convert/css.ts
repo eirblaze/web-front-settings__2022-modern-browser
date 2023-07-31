@@ -7,7 +7,7 @@ import newer from "gulp-newer"
 import { resolve as pathResolve } from "path"
 import rename from "gulp-rename"
 
-import { gulpCss, publicPath } from "#root/ioinfo"
+import { gulpCss, localPublicPath } from "#root/ioinfo"
 import { isDev } from "#tsk/getEnv"
 import { plugins as postCssPlugins } from "#root/postcss.config"
 import { srcArray, addSuffixStr } from "#tsk/gulp/convert/_util"
@@ -37,7 +37,7 @@ export default function buildSass(): NodeJS.ReadWriteStream {
 
   return stream.pipe(
     dest(
-      pathResolve(isDev ? publicPath.dev : publicPath.prod, gulpCss.dest.dir)
+      pathResolve(isDev ? localPublicPath.dev : localPublicPath.prod, gulpCss.dest.dir)
     )
   )
 }
