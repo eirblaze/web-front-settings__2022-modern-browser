@@ -1,0 +1,27 @@
+{
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.indentSize": "tabSize",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[jade]": {
+		"editor.defaultFormatter": "ducfilan.pug-formatter"
+	},
+	"[sass]": {
+		"editor.defaultFormatter": "syler.sass-indented"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features",
+		// "editor.defaultFormatter": "nikolaosgeorgiou.html-fmt-vscode",
+		// "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"jest.rootPath": "./src",
+	"jest.autoRun": {
+		"watch": false
+	}
+}
