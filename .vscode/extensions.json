@@ -1,0 +1,15 @@
+{
+	"recommendations": [
+    "esbenp.prettier-vscode",
+		"nikolaosgeorgiou.html-fmt-vscode",
+		"lllllllqw.jsdoc",
+		"ducfilan.pug-formatter",
+		"syler.sass-indented",
+
+    "mhutchie.git-graph",
+		"eamodio.gitlens",
+		"oderwat.indent-rainbow",
+
+    "orta.vscode-jest",
+  ]
+}
